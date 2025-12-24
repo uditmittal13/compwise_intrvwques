@@ -1,0 +1,22 @@
+A,B,C,D
+1,,2,3  -> ___
+4,,,1   -> 4__
+1,2,3,4 -> 
+
+sql(select concat(A,,B,C,D));
+
+
+Demo.
+Product,Category,Revenue,Diff
+A,Sports,5000,0
+B,Sports,4000,1000
+C,Electronics,2000,0
+
+df1 = 
+df2 = select Category,max(Revenue) from Demo group by Category
+
+select df1.*,df2.category as maxRevenueWrtCategory from df1 join df2 on df1.category=df2.category;
+
+
+
+

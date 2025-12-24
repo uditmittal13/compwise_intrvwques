@@ -1,0 +1,73 @@
+pb--zoom
+97187937168
+582636
+
+97525189681
+600265
+
+
+JSON
+dataframe= person data
+
+
+dataframe.
+
+select count(*) From person.
+df1 = select age,count(*) as total from person group by age
+
+df1.cache();
+
+sselect count(total) from (select age,count(*) as total from person group by age) ;
+
+
+thisisagooddayjsbjfsdjkmkmkUditbjhbhhdjsPub
+
+dictionary(word) - true/false
+
+
+Set<String> validOrds = HashSet<>();
+String temp="";
+for(int index=0;index<str.length;index++){
+    char c=str.charAt(index);
+    
+    String str1 = String.parse(c);
+     if(temp!=""){
+         temp=c;
+     }else{
+        str1 =temp+c;
+     }
+    
+    if(dictionary(str1)){
+       validOrds.add(str1);
+       temp="";
+    }
+    
+}
+
+
+1. users-> id,name, email, mobile no, addres--,
+
+2. Query,- id, qdesrption ,creationtime, userId, whichTypeOfTopic,
+
+3. 
+
+
+
+Tables:-
+Users
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+

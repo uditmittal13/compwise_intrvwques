@@ -1,0 +1,18 @@
+//input 
+1   2   3   
+4   5   6   
+7   8   9  
+
+1   2   3   a
+4   5   6   b
+7   8   9   c
+10  11  12  d
+
+
+//output
+7   4   1
+8   5   2
+9   6   3
+
+=> For st Iteration  (3*3) i , j
+   m,n shift right,down,left,above by one index (condition-> (m<=i,n==1 => m++,n ## m<=i,n==j => m++,n  ## ) )

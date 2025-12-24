@@ -1,0 +1,96 @@
+1,2,4,8,16,32,64.....these numbers comes in power of two so the method should return true for such numbers otherwise it should return false
+
+
+main(){
+
+
+
+}
+
+boolean checkIfExistInSeries(int val){
+	if(val==1){
+		return true;
+	}
+	else if(val%2==1){
+		return false
+	}
+	else{
+		return checkIfExistInSeries(val/2);
+	}
+}
+
+
+ex:-
+1 
+2
+3
+4
+5
+6
+
+
+
+
+Convert:
+A,B,C
+1,2,3
+4,5,6
+1,2,5
+:
+n
+m*n
+
+to:
+
+1,4,1
+2,5,2
+3,6,5
+
+n*m
+
+df= df.()
+
+
+3.
+
+ Name~|Age~|Comment
+ 
+
+ spark.read().textFile().javaRdd().map(line->{line.split})
+
+
+4. 
+Input: Emp Table
+
+Id, name, mgrId --> e1
+1, a, 2
+2, b, 3
+3, c, null
+
+Id, name, mgrId  -->e2
+1, a, 2
+2, b, 3
+3, c, null
+
+
+Write a query to get manager name of each of the employee?
+Output:
+empName, mgrName
+a b
+b c
+c null
+
+
+select e1.name,e2.name, from Emp e1 join Emp e2 on e1.mgrId=e2.Id;
+
+
+
+5. Diff b/w Task and Stages (Any formula to calculate the no of stages and task for job)
+6. Coalesec v/s repartition.
+7. Map Side join.
+8. Sort Merge Join
+9. 
+
+
+
+

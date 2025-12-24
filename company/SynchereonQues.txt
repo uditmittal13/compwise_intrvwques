@@ -1,0 +1,24 @@
+file->
+
+1.  word Count Problem
+e  f g h h j   h h  d   
+
+spark.read().textfile("filName").flatMap(line->Arrays.asList(line.split(" "))).mapToPair(word-> new Tuple2(word,1)).reduceByKey((x,y)->x+y);
+
+2. Difference between ( application ,job, task ,stage )
+3. 
+  A ,B
+
+A , --a,b,c
+B , --f,d,e
+
+ok...will check, union/unionAll
+
+3. Coalese v/s Repartition. Any case where we still want to prefer repartition over coalesec ( Data Skewness).
+4. Hbase Get v/s Scan 
+5. Concurrent HashMap
+6. ArrayList v/s LinkedList
+7. RDD v/s Dataset v/s DataFrame
+8. Narrow Transformation v/s Wide Transformation. ( Union/Union All)
+9. 
+
