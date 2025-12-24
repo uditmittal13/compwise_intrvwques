@@ -1,0 +1,100 @@
+import java.util.*; 
+import java.io.*;
+
+class Main {
+
+  public static int CountingMinutes(String str) {
+     int minuteCount=0;
+    
+     String[] arr = str.split("-");
+     String[] startTimeData = arr[0].split(":");
+     String[] endTimeData = arr[1].split(":");
+     
+     int startHour = Integer.parseInt(startTimeData[0]);
+     int endHour = Integer.parseInt(endTimeData[0]);
+     int startMinute = Integer.parseInt(startTimeData[1].substring(0,2));
+     int endMinute = Integer.parseInt(endTimeData[1].substring(0,2));
+     String startAmOrPm = startTimeData[1].substring(2,4);
+     String endAmOrPm = endTimeData[1].substring(2,4);
+  
+
+    //  System.out.println("startHour "+startHour);
+    //  System.out.println("startMinute "+startMinute);
+    //  System.out.println("endHour "+endHour);
+    //  System.out.println("endMinute "+endMinute);
+    //  System.out.println("startAmOrPm "+startAmOrPm);
+    //  System.out.println("endAmOrPm "+endAmOrPm);
+
+    // "12:30pm-12:00am"
+     if(startAmOrPm.equalsIgnoreCase(endAmOrPm)){
+       if(endHour>startHour){
+         minuteCount+= (endHour-startHour)*60 + (endMinute-startMinute);
+       }else if(startHour>endHour){
+          // "12:59am-2:59am"
+          minuteCount+= endHour*60+ (endMinute-startMinute);
+       }else{
+         // where start and end hour is same
+        // "1:23am-1:38am"
+          if(endMinute>startMinute){
+            minuteCount+= endMinute-startMinute;
+          }else{
+            // "1:23am-1:08am"
+            minuteCount+= 1440+ (endMinute-startMinute);
+          }
+       }
+     }else{
+
+            // Corner Cases Handling
+            if(endHour==12 || startHour==12){
+               if(endHour==12 && startHour==12){
+                 return minuteCount+= 720 + (endMinute-startMinute);
+               }else if(endHour==12){
+                 // "7:30pm-12:15am"
+                 // "7:30am-12:15pm"
+                 return (endHour-startHour)*60 + (endMinute-startMinute);
+               }
+               else if(startHour==12){
+                 // "12:30pm-5:15am"
+                 // "12:30am-5:15pm"
+                  return 720 + endHour*60 + (endMinute-startMinute);
+               }
+            }
+            //  "7:30pm-12:30am"
+            //  "7:30pm-8:45am"
+            //  "7:30pm-11:45am"
+            //  "7:30am-8:15pm"
+            //  "7:30am-11:15pm"
+            if(endHour>startHour){
+             // System.out.println("===="+endHour + " "+startHour + );
+               minuteCount= 720 + (endHour-startHour)*60 + (endMinute-startMinute);
+            }else if(startHour>endHour){
+               //  "7:30pm-12:15am"
+              //  "8:30pm-7:40am"
+              //  "11:30pm-7:40am"
+              //  "8:30am-6:30pm"
+              //  "11:30am-7:40pm"
+               minuteCount= 720 + (endHour-startHour)*60 + (endMinute-startMinute);
+            }else{
+               // where start and end hour is same
+              // "12:30pm-12:50am" 
+              // "12:30pm-12:00am"
+              minuteCount+= 720 + (endMinute-startMinute);
+              // if(endMinute>startMinute){
+              //   minuteCount+= 720 + (endMinute-startMinute);
+              // }else{
+              //   // "12:30pm-12:00am"
+              //   minuteCount+= 720+ (endMinute-startMinute);
+              // }
+        }
+     }
+
+    return minuteCount;
+  }
+
+  public static void main (String[] args) {  
+    // keep this function call here     
+    Scanner s = new Scanner(System.in);
+    System.out.print(CountingMinutes(s.nextLine())); 
+  }
+
+}
