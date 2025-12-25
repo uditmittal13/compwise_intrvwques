@@ -1,0 +1,70 @@
+Employee table:
+int empId
+String name
+int age
+double salary
+int deptId
+int sportsId
+
+Dept table:
+int deptId
+String deptName
+
+Sports table:
+int sportsId
+String sportsName
+
+
+=== Questions ===
+
+Q1. Find max salary for each department
+
+o/p:-
+deptName,salary
+
+select d.deptName,max(salary) from Employee e join dept d on e.deptId= d.deptId group by d.deptName;
+select a.deptName,max(a.salary) from (select e.*,d.deptName from Employee e join dept d on e.deptId= d.deptId) a group by a.deptName;
+
+
+Q2. Find top sports for 'Finance' department
+
+select  sportsName,count(empId) as totalEmployee from Employee e join dept d on e.deptId= d.deptId join sports s on e.sportsId=s.sportsId where d.deptName='Finance'
+ group by sportsName having totalEmployee>100;
+
+select  sportsName,count(empId) as totalEmployee from Employee e join dept d on e.deptId= d.deptId join sports s on e.sportsId=s.sportsId where d.deptName='Finance'
+ group by sportsName order by totalEmployee desc LIMIT 5;
+
+
+Q3. Third highest salaried person
+
+select empId,name,rank().over(order by salary) from Employee
+select empId,name from (select empId,name,rank().over(order by salary) from Employee) a where a.rank=3;
+
+
+Q4. um.log
+
+date fileName log
+DD-MM-YYYY FileName:LineNo logStatement
+[3:01 PM] Tapan Kumar Nanda
+    SqlException
+
+df = spark.read.option("delimeter","").csv("um.log");
+df.registerTemplateAsView("temptable");
+df1  = spark.sql(select date,split(fileName,":")[0] as fileName, split(fileName,":")[1] as LineNo, log from temptable);
+
+select * from df1 where lineNo in select lineNo from df1 where log like '%SqlException%'
+
+df2 = df1.filter("log like '%SqlException%'")
+df2.
+
+
+
+
+
+
+df1 = spark.sql("select value,rank().over(group by date order by ) from temptable");
+
+
+
+
+

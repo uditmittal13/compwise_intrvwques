@@ -1,0 +1,39 @@
+EMployee
+eid, name, salary , mId
+
+select eid,name, max(salary)
+
+o/p
+name of employee whos earning most under a manager
+
+
+
+
+A , B
+
+a,b
+1 , 1
+1 , 0 
+0 , null 
+null, null
+
+inner:-
+a,b
+1,1
+1,1
+0,0
+
+
+left join
+1,1
+1,1
+0,0
+null,null
+
+
+
+
+
+
+
+

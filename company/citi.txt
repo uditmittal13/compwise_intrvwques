@@ -1,0 +1,23 @@
+c
+
+spark.sql();
+a,b
+1 s1@s2@s2
+2 s1@s2 
+1 s2@s3
+
+spark.sql("")
+
+df.createOrReplaceTempView("table")
+spa
+select a,sentence,count('sentence') as total from (select a,explode(split(b,"@")) as sentence) from table) group by a,sentence; 
+
+1, s1 , 1
+1, s2 , 3
+1, s3, 1
+2, s1 , 1
+2, s2 , 1 
+
+
+
+

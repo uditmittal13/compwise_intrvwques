@@ -1,0 +1,97 @@
++-------------------------------------------------------+
+| item | purchases | category | total_purchases |
++-------------------------------------------------------+
+| banana | 2 | fruit | 10 |
+| apple | 8 | fruit | 10 |
+| leek | 2 | vegetable | 44 |
+| cabbage | 9 | vegetable | 44 |
+| lettuce | 10 | vegetable | 44 |
+| kale | 23 | vegetable | 44 |
++-------------------------------------------------------+
+
+sum of purchases per category
+
+var windowSpec = Windows.partitionBy(category);
+df = df.withColumn("total_purchases",sum(purchases).over(windowSpec));
+
+
++-------------------------------------------------------+
+| item | purchases | category | total_purchases |
++-------------------------------------------------------+
+| banana | 2 | fruit | 2 |
+| apple | 8 | fruit | 10 |
+| leek | 2 | vegetable | 2 |
+| cabbage | 9 | vegetable | 11 |
+| lettuce | 10 | vegetable | 21 |
+| kale | 23 | vegetable | 44 |
++-------------------------------------------------------+
+
+
+
+
+id|value
+1|Name:Prashant;salary:1344443;role:DE
+2|Name:Shrishti;age:27;org:Facebook;city:Banglore
+
+
+df.withColumn("arrayValue",split(value,";")).selectExpr(explode())
+
+
+Process the data and get me a dataframe with following output
+
+
+id,key,value
+1,Name,Prashant
+1,salary,1344443
+1,role,DE
+2,Name,Shrishti
+2,age,27
+2,org,Facebook
+2,city,Banglore
+
+
+Q4:-
+
+Udit Mittal Code is #Java #Spark
+Coding in #Java is easy
+
+user	tweets
+user1 Tweet1
+user2 Tweet1
+user1 Tweet2
+user2 Tweet2
+
+
+df.withColumn("splittedvalue",split(tweets," ")).selectExpr(explode("splittedValue") as tempValue);
+df.registerAsTempView("TEMPTABLE")
+
+spark.sql("select user,collect_set("tempValue") from TEMPTABLE where tempValue like '#%' group by user")
+
+
+
+user1 [h1, h2,h3]
+user2 [h1,h2,h3]
+
+
+
+Q5:-
+Java Question:-
+public class MyClass {
+    public static void main(String args[]) {
+      
+      int value = 983547839;
+      
+      int lastValue = (value%10);
+      
+      int firstValue  =  getFirstValue(value);
+      System.out.println(" sum is "+(firstValue+lastValue));
+      
+    }
+    
+    public  static int getFirstValue(int value){
+        
+        return value<10?value:getFirstValue(value/10);
+    }
+    
+}
+

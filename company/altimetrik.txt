@@ -1,0 +1,40 @@
+id,name,value,valuelist
+1,X,10,[20,30,40]
+2,Y,100,[100,200,300]
+
+df 
+select df.* from df where array_contains(df.value,df.valuelist)='true';
+
+Studentid,Gender,city
+1,M,Bnglr
+2,F,Mum
+df
+
+
+select df.StudentId,df.city, case if df.Gender='M' then 'Male',else if df.Gender='F' then 'FeMale' end as Gender from df;
+
+
+select  from table;
+
+
+int[] arr
+Map<Integer,Integer> hashmap = new HashMap<Integer,Integer>();
+for(int index=0;index<arr.length();index++){
+ if(hashMmap.contains(arr[index])){
+	hashmap.put(arr[index],hashmpa.get(arr[inedx])+1);
+  }else{
+	hashmap.put(arr[index],hashmpa.get(arr[inedx]));
+      }
+}
+
+{3-3.1-2,5-1,9-1}
+int element;
+int value=0;
+for(Entryset<Integer,Integer> map : hashmap.entrySet()){
+	if(map.getValue()>vaue)	{
+		vakue = map.getValue();
+		element = map.getKey();
+	}
+}
+return element;
+

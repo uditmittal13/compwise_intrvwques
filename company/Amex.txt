@@ -1,0 +1,28 @@
+year, month , sale
+2020 , 1 , 100,
+2020 , 2 , 200
+2020 , 3  , 300
+
+
+
+
+2020 , Q1, 600
+2021 , Q1 , 700
+
+2020, Q1, 0
+2021 , Q1, 1
+
+....
+
+.
+.
+.
+.
+
+
+2020 , 12 , 500
+
+
+df
+
+select *,LAG(sale) over (group by querter orde by month) from df ;

@@ -1,0 +1,94 @@
+b3a2c1d4
+
+30abcddcba10
+
+
+Ans:-
+
+
+main(){
+	String s = "b3a2c1d4";
+	int sum=0;
+	int squareSum=0;
+	TreeSet<String> treesSet = new TreeSet<>();
+
+	for(int index=0;index<s.lenght;index++){
+		char c = s.getCharAt(index);
+		try{
+		  String tempChar = c.toString();
+		  int val = Integer.parseInt();
+		  sum+=val;
+		  squareSum+=val*val;
+		}catch(Exception e){
+		 
+		}
+	}
+	
+
+	String finalString = sqaureSum+ +  +sum;
+
+}
+
+Ques:-
+File A  
+
+a
+b
+c
+
+File B
+1
+2
+3
+4
+5
+
+o/p
+File C
+a
+1
+b
+2
+c
+3
+4
+5
+
+
+Ques:-
+
+Online Book Store
+
+Authors (a_id, name)
+1 a1
+2 a2
+3 a3
+Books (b_id, name)
+Tranaction (t_id, t_amt, t_date, b_id, a_id)
+
+a1 5 books sold on yesterday and the total cost is 1200
+a2 4 books sold on yesterday and the total cost is 1000
+a3 3 books sold on yesterday and the total cost is 800
+
+
+Author table
+id , name
+
+Books table
+id, name
+
+Transaction table
+id, bookid, authorid, amount,date
+
+ select a.id,a.name, Rank over (order by totalAmount ) as rankNo from  ( select a.id,a.name,sum(amount) as totalAmount from transaction t join  author a on t.authorId = a.id 
+ where date=date-1 group by a.id,a.name) where rankNo=2;
+
+
+select c.authorid,c.totalBookCost,a.name from (select authorid, sum(amount) as totalBookCost from transaction  where date='date-1' group by authorid order by
+totalBookCost desc ) c join author a on c.autorId=a.id  where RowNum<=1;;
+
+
+
+
+
+
